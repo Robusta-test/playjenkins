@@ -2,8 +2,6 @@ pipeline {
 
 
   agent {
-    args '-u root:root'
-    whoami
     kubernetes {
       yamlFile 'builder.yaml'
     }
