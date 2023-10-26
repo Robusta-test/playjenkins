@@ -27,7 +27,10 @@ pipeline {
       steps {
         container('kubectl') {
           script {
-            kubernetesDeploy(configs: "myweb.yaml")
+            kubernetesDeploy(
+              configs: 'myweb.yaml'
+              kubeconfigId: 'mykubeconfig'
+            )
           // withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
           //   sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
           //   sh 'kubectl apply -f myweb.yaml'
