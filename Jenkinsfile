@@ -28,7 +28,7 @@ pipeline {
         container('kubectl') {
           script {
             kubernetesDeploy(
-              configs: 'myweb.yaml'
+              configs: 'myweb.yaml',
               kubeconfigId: 'mykubeconfig'
             )
           // withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
